@@ -30,6 +30,10 @@ function initial_config {
   echo "Setting permissions"
   addgroup -g 5000 vmail
   adduser -D -u 5000 -G vmail -s /usr/bin/nologin -h /var/mail vmail
+
+  echo "Creating folder for sieve"
+  mkdir $dovecot_directory/sieve
+  chown 5000:5000 $dovecot_directory/sieve
  
   echo "Cleaning up"
   cd $dovecot_directory

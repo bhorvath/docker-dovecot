@@ -1,7 +1,7 @@
 FROM alpine:3.12
 RUN apk update && \
   apk add --no-cache bash gettext tzdata && \
-  apk add --no-cache dovecot dovecot-lmtpd && \
+  apk add --no-cache dovecot dovecot-lmtpd dovecot-pigeonhole-plugin && \
   rm -rf /var/lib/cache/apk/*
 COPY conf /tmp/dovecot_staging
 COPY entrypoint.sh /usr/libexec
